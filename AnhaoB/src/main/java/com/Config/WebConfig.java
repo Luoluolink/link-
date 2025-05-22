@@ -1,0 +1,19 @@
+package com.Config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    public WebConfig() {
+        System.out.println("静态资源");
+
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/uploads/**") // 让 /uploads/ 目录的图片可以访问
+                .addResourceLocations("file:D:/java/AnhaoB/uploads/");
+    }
+}
